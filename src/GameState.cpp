@@ -2460,14 +2460,14 @@ public:
 		LuaHelpers::CreateTableFromArray( vHP, L );
 		return 1;
 	}
-  static int GetEnabledPlayers(T* , lua_State *L )
-  {
-    vector<PlayerNumber> vEP;
-    FOREACH_EnabledPlayer( pn )
-      vEP.push_back( pn );
-    LuaHelpers::CreateTableFromArray( vEP, L );
-    return 1;
-  }  
+	static int GetEnabledPlayers(T* , lua_State *L )
+	{
+		vector<PlayerNumber> vEP;
+		FOREACH_EnabledPlayer( pn )
+			vEP.push_back( pn );
+		LuaHelpers::CreateTableFromArray( vEP, L );
+		return 1;
+	}  
 	static int GetCurrentStyle( T* p, lua_State *L )
 	{
 		Style *pStyle = const_cast<Style *> (p->GetCurrentStyle());
