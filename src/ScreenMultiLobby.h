@@ -19,7 +19,7 @@ class ScreenMultiLobby : public ScreenWithMenuElements
 	virtual bool Input( const InputEventPlus &input );
 
  private:
-	MultiPlayerStatus *multiPlayerStatus;//short cut to GAMEMAN->m_MultiPlayerStatus 
+	
 
 };
 
