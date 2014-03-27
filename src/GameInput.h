@@ -16,6 +16,48 @@ enum GameController
 const RString& GameControllerToString( GameController mp );
 LuaDeclareType( GameController );
 
+/** @brief list of multiplayer contolers in use */
+enum MultiPlayerContoller
+{
+	MultiPlayerContoller_1 = 0,
+	MultiPlayerContoller_2,
+	MultiPlayerContoller_3,
+	MultiPlayerContoller_4,
+	MultiPlayerContoller_5,
+	MultiPlayerContoller_6,
+	MultiPlayerContoller_7,
+	MultiPlayerContoller_8,
+	MultiPlayerContoller_9,
+	MultiPlayerContoller_10,
+	MultiPlayerContoller_11,
+	MultiPlayerContoller_12,
+	MultiPlayerContoller_13,
+	MultiPlayerContoller_14,
+	MultiPlayerContoller_15,
+	MultiPlayerContoller_16,
+	MultiPlayerContoller_17,
+	MultiPlayerContoller_18,
+	MultiPlayerContoller_19,
+	MultiPlayerContoller_20,
+	MultiPlayerContoller_21,
+	MultiPlayerContoller_22,
+	MultiPlayerContoller_23,
+	MultiPlayerContoller_24,
+	MultiPlayerContoller_25,
+	MultiPlayerContoller_26,
+	MultiPlayerContoller_27,
+	MultiPlayerContoller_28,
+	MultiPlayerContoller_29,
+	MultiPlayerContoller_30,
+	MultiPlayerContoller_31,
+	MultiPlayerContoller_32,
+	NUM_MultiPlayerContoller,	/**< The number of controllers allowed. */
+	MultiPlayerController_Invalid,
+	
+}
+const RString& MultiPlayerControllerToString( MultiPlayerContoller mp );
+LuaDeclareType( MultiPlayerContoller );
+
 /** @brief the list of buttons StepMania recognizes. */
 enum GameButton
 {

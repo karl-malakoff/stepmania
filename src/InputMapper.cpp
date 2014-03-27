@@ -941,6 +941,8 @@ InputDevice InputMapper::MultiPlayerToInputDevice( MultiPlayer mp )
 	return enum_add2( DEVICE_JOY1, mp );
 }
 
+//Multiplayer is mapped directly to an input device with out a 'GameContoler' inbetween
+//there dosen't seem to be any other functions for this at the moment though
 MultiPlayer InputMapper::InputDeviceToMultiPlayer( InputDevice id )
 {
 	if( id == InputDevice_Invalid )
