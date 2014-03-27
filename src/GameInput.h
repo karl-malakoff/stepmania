@@ -52,9 +52,9 @@ enum MultiPlayerContoller
 	MultiPlayerContoller_31,
 	MultiPlayerContoller_32,
 	NUM_MultiPlayerContoller,	/**< The number of controllers allowed. */
-	MultiPlayerController_Invalid,
+	MultiPlayerContoller_Invalid,
 	
-}
+};
 const RString& MultiPlayerControllerToString( MultiPlayerContoller mp );
 LuaDeclareType( MultiPlayerContoller );
 

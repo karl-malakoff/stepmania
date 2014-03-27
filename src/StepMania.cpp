@@ -1482,7 +1482,7 @@ void HandleInputEvents(float fDeltaTime)
 		swap( input.InputList, ieArray[i].m_ButtonState );
 
 		// hack for testing (MultiPlayer) with only one joystick
-		/*
+		//TODO remember to uncomment this after testing
 		if( input.DeviceI.IsJoystick() )
 		{
 			if( INPUTFILTER->IsBeingPressed( DeviceInput(DEVICE_KEYBOARD,KEY_LSHIFT) ) )
@@ -1496,7 +1496,7 @@ void HandleInputEvents(float fDeltaTime)
 			if( INPUTFILTER->IsBeingPressed( DeviceInput(DEVICE_KEYBOARD,KEY_RCTRL) ) )
 				input.DeviceI.device = (InputDevice)(input.DeviceI.device + 16);
 		}
-		*/
+		
 
 		INPUTMAPPER->DeviceToGame( input.DeviceI, input.GameI );
 

@@ -120,7 +120,8 @@ ScreenTitleMenu.cpp ScreenTitleMenu.h \
 ScreenUnlockBrowse.cpp ScreenUnlockBrowse.h \
 ScreenUnlockCelebrate.cpp ScreenUnlockCelebrate.h \
 ScreenUnlockStatus.cpp ScreenUnlockStatus.h \
-ScreenWithMenuElements.cpp ScreenWithMenuElements.h
+ScreenWithMenuElements.cpp ScreenWithMenuElements.h \
+ScreenMultiLobby.cpp ScreenMultiLobby.h
 
 if !WITHOUT_NETWORKING
  Screens += ScreenSMOnlineLogin.cpp ScreenSMOnlineLogin.h
