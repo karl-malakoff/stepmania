@@ -475,6 +475,27 @@ bool GameState::JoinInput( PlayerNumber pn )
 		return JoinInputInternal( pn );
 }
 
+//Join a multiplayer, simple for now to test TODO better checking
+void GameState::JoinMultiPlayer(MultiPlayer mp)
+{
+	if(!m_bMultiplayer)
+	{
+		return;
+	}
+
+	m_MultiPlayerStatus[mp] = MultiPlayerStatus_Joined;
+}
+
+void GameState::UnjoinMultiPlayer(MultiPlayer mp)
+{
+	if(!m_bMultiplayer)
+	{
+		return;
+	}
+
+	m_MultiPlayerStatus[mp] = MultiPlayerStatus_NotJoined;
+}
+		
 // Attempt to join all players, as if each player pressed Start.
 bool GameState::JoinPlayers()
 {

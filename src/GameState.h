@@ -57,6 +57,9 @@ public:
 	void UnjoinPlayer( PlayerNumber pn );
 	bool JoinInput( PlayerNumber pn );
 	bool JoinPlayers();
+	void JoinMultiPlayer(MultiPlayer mp);
+	void UnjoinMultiPlayer(MultiPlayer mp);
+	//bool JoinMultiPlayerInput(MultiPlayer mp);
 	void LoadProfiles( bool bLoadEdits = true );
 	void SavePlayerProfiles();
 	void SavePlayerProfile( PlayerNumber pn );

@@ -1,5 +1,10 @@
 #include "global.h"
 #include "ScreenMultiLobby.h"
+#include "GameState.h"
+#include "GameInput.h"
+#include "RageLog.h"
+#include "EnumHelper.h"
+#include <vector>
 
 REGISTER_SCREEN_CLASS( ScreenMultiLobby );
 
@@ -7,6 +12,12 @@ ScreenMultiLobby::ScreenMultiLobby()
 {
 	//this probably isn't where this should be put but will do for testing
 	GAMESTATE->m_bMultiplayer = true;
+}
+
+ScreenMultiLobby::~ScreenMultiLobby()
+{
+	//really not sure if this is right...
+	GAMESTATE->m_bMultiplayer = false;
 }
 
 void ScreenMultiLobby::Init()
@@ -22,10 +33,50 @@ void ScreenMultiLobby::BeginScreen()
 void ScreenMultiLobby::Update( float fDeltaTime )
 {
 	ScreenWithMenuElements::Update( fDeltaTime );
+
+	//check for joined players
+	FOREACH_MultiPlayer( mp )
+	{
+		if(GAMESTATE->IsMultiPlayerEnabled(mp))
+		{
+			LOG->Trace("MultiPlayer Enabled %d\n", mp);
+		}
+		
+	}
 }
 
+//This is where I really need to do stuff, if a player does an input join them to the game
+//First lets try and just detect what controllers are being pressed and display messages
 bool ScreenMultiLobby::Input( const InputEventPlus &input )
 {
+	DeviceInput dev = input.DeviceI;
+	int button = input.DeviceI.button;
+
+	//Allow user to quit the game using the keyboard
+	if(input.DeviceI.device == DEVICE_KEYBOARD)
+	{
+		switch(button)
+		{
+		case KEY_ESC:
+			StartTransitioningScreen(SM_GoToNextScreen);
+			return true;
+			break;
+		}
+	}
+
+	//Check for device input and activate players
+	//Also need some way of exiting
+	//LOG->Trace("#IN Input detected of type :");
+	//LOG->Trace(InputDeviceToString(dev.device));
+	if(dev.IsJoystick())
+	{
+		//work out which player the input belongs to
+		//TODO double check this is the correct way to do this
+		LOG->Trace("Joining Multiplayer %d", dev.device);
+		MultiPlayer mp = (MultiPlayer)enum_add2(dev.device, -1);
+		GAMESTATE->JoinMultiPlayer(mp);
+	}
+	
 	return false;
 }
 

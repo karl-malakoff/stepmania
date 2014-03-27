@@ -6,15 +6,20 @@
 #include "ScreenWithMenuElements.h"
 #include "InputMapper.h"
 #include "InputEventPlus.h"
+#include "GameConstantsAndTypes.h"
 
 class ScreenMultiLobby : public ScreenWithMenuElements
 {
  public:
 	ScreenMultiLobby();
+	~ScreenMultiLobby();
 	virtual void Init();
 	virtual void BeginScreen();
 	virtual void Update( float fDeltaFime );
 	virtual bool Input( const InputEventPlus &input );
+
+ private:
+	MultiPlayerStatus *multiPlayerStatus;//short cut to GAMEMAN->m_MultiPlayerStatus 
 
 };
 
