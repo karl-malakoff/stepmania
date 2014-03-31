@@ -7,6 +7,7 @@
 #include "InputMapper.h"
 #include "InputEventPlus.h"
 #include "GameConstantsAndTypes.h"
+#include "BitmapText.h"
 
 class ScreenMultiLobby : public ScreenWithMenuElements
 {
@@ -18,6 +19,9 @@ class ScreenMultiLobby : public ScreenWithMenuElements
 	virtual void Update( float fDeltaFime );
 	virtual bool Input( const InputEventPlus &input );
 
+	//this is mainly for debuging, will replace with something pretty later
+	BitmapText info; 
+	RString active;
  private:
 	
 

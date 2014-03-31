@@ -23,6 +23,18 @@ ScreenMultiLobby::~ScreenMultiLobby()
 void ScreenMultiLobby::Init()
 {
 	ScreenWithMenuElements::Init();
+	info.LoadFromFont( THEME->GetPathF("ScreenMultiLobby", "text"));
+	info.SetName("Info");
+	info.SetShadowLength(0);
+	info.SetHorizAlign( align_left);
+	//LOAD_ALL_COMMANDS(info);
+	//ON_COMMAND(info);
+	this->AddChild(&info);
+	info.SetX(50.0);
+	info.SetY(200.0);
+
+	active = "Joined multiplayers : ";
+	info.SetText(active);
 }
 
 void ScreenMultiLobby::BeginScreen()
@@ -39,7 +51,7 @@ void ScreenMultiLobby::Update( float fDeltaTime )
 	{
 		if(GAMESTATE->IsMultiPlayerEnabled(mp))
 		{
-			LOG->Trace("MultiPlayer Enabled %d\n", mp);
+			//LOG->Trace("MultiPlayer Enabled %d\n", mp);
 		}
 		
 	}
@@ -74,7 +86,12 @@ bool ScreenMultiLobby::Input( const InputEventPlus &input )
 		//TODO double check this is the correct way to do this
 		LOG->Trace("Joining Multiplayer %d", dev.device);
 		MultiPlayer mp = (MultiPlayer)enum_add2(dev.device, -1);
-		GAMESTATE->JoinMultiPlayer(mp);
+		if(!GAMESTATE->IsMultiPlayerEnabled(mp))
+		{
+			GAMESTATE->JoinMultiPlayer(mp);
+			active = active + " " + MultiPlayerToString(mp);
+			info.SetText(active);
+		}
 	}
 	
 	return false;
