@@ -62,6 +62,8 @@ enum MultiPlayer
 	NUM_MultiPlayer,	// leave this at the end
 	MultiPlayer_Invalid
 };
+const MultiPlayer NUM_MULTIPLAYERS = NUM_MultiPlayer;
+const MultiPlayer MULTIPLAYER_INVALID = MultiPlayer_Invalid;
 const RString& MultiPlayerToString( MultiPlayer mp );
 const RString& MultiPlayerToLocalizedString( MultiPlayer mp );
 LuaDeclareType( MultiPlayer );
